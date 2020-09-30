@@ -1,0 +1,344 @@
+from ._anvil_designer import Form1Template
+from anvil import *
+import plotly.graph_objects as go
+import anvil.server
+
+class Form1(Form1Template):
+
+  def __init__(self, **properties):
+    # Set Form properties and Data Bindings.
+    self.init_components(**properties)
+
+    # Any code you write here will run when the form opens.
+
+  def text_box_1_pressed_enter(self, **event_args):
+    """This method is called when the user presses Enter in this text box"""
+    pass
+
+  def button_1_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    flag=False
+    self.message_label.text,self.message_label2.text,self.message_label3.text = '','',''
+    try:
+      user_input=self.box_gender.text
+      val = int(user_input)
+      if int(self.box_gender.text) not in range(1,3):
+        self.message_label.text += 'Enter gender correctly\n'
+        flag=True
+    except ValueError:
+        self.message_label.text += 'Enter gender correctly\n'
+        flag=True
+      
+    try:
+      user_input=self.box_state.text
+      val = int(user_input)
+      if int(self.box_state.text) not in range(1,53):
+        self.message_label.text += 'Enter state correctly\n'
+        flag=True
+    except ValueError:
+        self.message_label.text += 'Enter state correctly\n'
+        flag=True
+    try:
+        user_input=self.box.text
+        val = int(user_input)
+    except ValueError:
+        flag=True
+        self.message_label.text += "Entered Inpatient Claim Number is not an integer. It's a string.\n"
+    try:
+        user_input=self.box2.text
+        val = int(user_input)
+    except ValueError:
+        flag=True
+        self.message_label.text += "Entered Outpatient Claim Number is not an integer. It's a string.\n"
+    try:
+        user_input=self.box3.text
+        val = int(user_input)
+    except ValueError:
+        flag=True
+        self.message_label.text += "Entered Inpatient Claim Amount is not an integer. It's a string.\n"
+    try:
+        user_input=self.box4.text
+        val = int(user_input)
+    except ValueError:
+        flag=True
+        self.message_label.text += "Entered Outpatient Claim Amount is not an integer. It's a string.\n"
+    try:
+        user_input = self.bill.text
+        val = int(user_input)
+    except ValueError:
+        flag=True
+        self.message_label.text += "Entered Bill Amount is not an integer. It's a string.\n"
+    try:
+        user_input = self.reimb.text
+        val = int(user_input)
+    except ValueError:
+        flag=True
+        self.message_label.text += "Entered Reimbursement Amount is not an integer. It's a string.\n"
+    self.message_label2.text,self.message_label3.text = '',''
+    if flag==False:
+        self.message_label.text,self.message_label2.text,self.message_label3.text = anvil.server.call('task_3',self.box.text,self.box2.text,self.box3.text,self.box4.text)
+   
+
+  def button_6_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    flag=False
+    self.message_label.text,self.message_label2.text,self.message_label3.text = '','',''
+    try:
+      user_input=self.box_gender.text
+      val = int(user_input)
+      if int(self.box_gender.text) not in range(1,3):
+        self.message_label.text += 'Enter gender correctly\n'
+        flag=True
+    except ValueError:
+        self.message_label.text += 'Enter gender correctly\n'
+        flag=True
+    try:
+      user_input=self.box_state.text
+      val = int(user_input)
+      if int(self.box_state.text) not in range(1,53):
+        self.message_label.text += 'Enter state correctly\n'
+        flag=True
+    except ValueError:
+        self.message_label.text += 'Enter state correctly\n'
+        flag=True
+    try:
+        user_input=self.box.text
+        val = int(user_input)
+    except ValueError:
+        flag=True
+        self.message_label.text += "Entered Inpatient Claim Number is not an integer. It's a string.\n"
+    try:
+        user_input=self.box2.text
+        val = int(user_input)
+    except ValueError:
+        flag=True
+        self.message_label.text += "Entered Outpatient Claim Number is not an integer. It's a string.\n"
+    try:
+        user_input=self.box3.text
+        val = int(user_input)
+    except ValueError:
+        flag=True
+        self.message_label.text += "Entered Inpatient Claim Amount is not an integer. It's a string.\n"
+    try:
+        user_input=self.box4.text
+        val = int(user_input)
+    except ValueError:
+        flag=True
+        self.message_label.text += "Entered Outpatient Claim Amount is not an integer. It's a string.\n"
+    self.message_label2.text,self.message_label3.text = '',''
+    try:
+        user_input = self.bill.text
+        val = int(user_input)
+    except ValueError:
+        flag=True
+        self.message_label.text += "Entered Bill Amount is not an integer. It's a string.\n"
+    try:
+        user_input = self.reimb.text
+        val = int(user_input)
+    except ValueError:
+        flag=True
+        self.message_label.text += "Entered Reimbursement Amount is not an integer. It's a string.\n"
+    self.message_label2.text,self.message_label3.text = '',''
+    if flag==False:
+        self.message_label.text,self.message_label2.text,self.message_label3.text = anvil.server.call('task_4',self.box.text,self.box2.text,self.box3.text,self.box4.text)
+   
+ 
+
+  def button_7_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
+
+  def box_gender_pressed_enter(self, **event_args):
+    """This method is called when the user presses Enter in this text box"""
+    pass 
+  
+  
+  def button_9_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    flag=False
+    self.message_label.text,self.message_label2.text,self.message_label3.text = '','',''
+    try:
+      user_input=self.box_gender.text
+      val = int(user_input)
+      if int(self.box_gender.text) not in range(1,3):
+        self.message_label.text += 'Enter gender correctly\n'
+        flag=True
+    except ValueError:
+        self.message_label.text += 'Enter gender correctly\n'
+        flag=True
+    try:
+      user_input=self.box_state.text
+      val = int(user_input)
+      if int(self.box_state.text) not in range(1,53):
+        self.message_label.text += 'Enter state correctly\n'
+        flag=True
+    except ValueError:
+        self.message_label.text += 'Enter state correctly\n'
+        flag=True
+    try:
+        user_input=self.box.text
+        val = int(user_input)
+    except ValueError:
+        flag=True
+        self.message_label.text += "Entered Inpatient Claim Number is not an integer. It's a string.\n"
+    try:
+        user_input=self.box2.text
+        val = int(user_input)
+    except ValueError:
+        flag=True
+        self.message_label.text += "Entered Outpatient Claim Number is not an integer. It's a string.\n"
+    try:
+        user_input=self.box3.text
+        val = int(user_input)
+    except ValueError:
+        flag=True
+        self.message_label.text += "Entered Inpatient Claim Amount is not an integer. It's a string.\n"
+    try:
+        user_input=self.box4.text
+        val = int(user_input)
+    except ValueError:
+        flag=True
+        self.message_label.text += "Entered Outpatient Claim Amount is not an integer. It's a string.\n"
+    try:
+        user_input = self.bill.text
+        val = int(user_input)
+    except ValueError:
+        flag=True
+        self.message_label.text += "Entered Bill Amount is not an integer. It's a string.\n"
+    try:
+        user_input = self.reimb.text
+        val = int(user_input)
+    except ValueError:
+        flag=True
+        self.message_label.text += "Entered Reimbursement Amount is not an integer. It's a string.\n"
+    self.message_label2.text,self.message_label3.text = '',''
+    if flag==False:
+      self.message_label.text = "NO Anomalies detected"
+
+  def button_12_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    flag=False
+    self.message_label.text,self.message_label2.text,self.message_label3.text = '','',''    
+    try:
+      user_input=self.box_gender.text
+      val = int(user_input)
+      if int(self.box_gender.text) not in range(1,3):
+        self.message_label.text += 'Enter gender correctly\n'
+        flag=True
+    except ValueError:
+        self.message_label.text += 'Enter gender correctly\n'
+        flag=True
+      
+    try:
+      user_input=self.box_state.text
+      val = int(user_input)
+      if int(self.box_gender.text) not in range(1,53):
+        self.message_label.text += 'Enter state correctly\n'
+        flag=True
+    except ValueError:
+        self.message_label.text += 'Enter state correctly\n'
+        flag=True
+    try:
+        user_input=self.box.text
+        val = int(user_input)
+    except ValueError:
+        flag=True
+        self.message_label.text += "Entered Inpatient Claim Number is not an integer. It's a string.\n"
+    try:
+        user_input=self.box2.text
+        val = int(user_input)
+    except ValueError:
+        flag=True
+        self.message_label.text += "Entered Outpatient Claim Number is not an integer. It's a string.\n"
+    try:
+        user_input=self.box3.text
+        val = int(user_input)
+    except ValueError:
+        flag=True
+        self.message_label.text += "Entered Inpatient Claim Amount is not an integer. It's a string.\n"
+    try:
+        user_input=self.box4.text
+        val = int(user_input)
+    except ValueError:
+        flag=True
+        self.message_label.text += "Entered Outpatient Claim Amount is not an integer. It's a string.\n"
+    try:
+        user_input = self.bill.text
+        val = int(user_input)
+    except ValueError:
+        flag=True
+        self.message_label.text += "Entered Bill Amount is not an integer. It's a string.\n"
+    try:
+        user_input = self.reimb.text
+        val = int(user_input)
+    except ValueError:
+        flag=True
+        self.message_label.text += "Entered Reimbursement Amount is not an integer. It's a string.\n"
+    self.message_label2.text,self.message_label3.text = '',''
+    if flag==False:
+       if int(self.bill.text)<int(self.reimb.text):
+           self.message_label.text = " Provider Company overpayed."   
+       elif int(self.bill.text)>int(self.reimb.text):
+           self.message_label.text = " Patient overpayed."
+       else:
+           self.message_label.text = " No overpayment"
+
+  def button_8_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
+
+  def button_10_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
+
+  def button_11_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
+
+  def button_2_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
+
+  def button_3_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
+
+  def button_4_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
+
+  def button_5_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
+
+  def box_state_pressed_enter(self, **event_args):
+    """This method is called when the user presses Enter in this text box"""
+    pass
+
+  def bill_pressed_enter(self, **event_args):
+    """This method is called when the user presses Enter in this text box"""
+    pass
+
+  def reimb_pressed_enter(self, **event_args):
+    """This method is called when the user presses Enter in this text box"""
+    pass
+
+  def box_pressed_enter(self, **event_args):
+    """This method is called when the user presses Enter in this text box"""
+    pass
+
+  def box2_pressed_enter(self, **event_args):
+    """This method is called when the user presses Enter in this text box"""
+    pass
+
+  def text_box_2_pressed_enter(self, **event_args):
+    """This method is called when the user presses Enter in this text box"""
+    pass
+
+  def box4_pressed_enter(self, **event_args):
+    """This method is called when the user presses Enter in this text box"""
+    pass
+
+  def link_1_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    pass
